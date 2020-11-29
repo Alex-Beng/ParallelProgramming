@@ -42,7 +42,7 @@ int main(int argc, char const *argv[]) {
         }
     }
     clock_t end = clock();
-    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+    clock_t time_spent = end - begin;
 
     int pnt_in_cc_sum = 0;
     for (int i=0; i<thread_nums; i++) {
@@ -51,6 +51,6 @@ int main(int argc, char const *argv[]) {
 
     double pi = pnt_in_cc_sum*1.0/pnt_nums;
     pi *= 4.0;
-    printf("%d points get %lf take %lfs\n", pnt_nums, pi, time_spent);
+    printf("%d points get %lf take %ld ms\n", pnt_nums, pi, time_spent);
     return 0;
 }
